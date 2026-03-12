@@ -7,11 +7,10 @@ import { C, NAV_TOP, NAV_MAIN } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 
 const patientLinks = [
-  { label: "Why Earlens", href: "/#why", drop: true },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Compare", href: "/#compare" },
-  { label: "Stories", href: "/#stories" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Home", href: "/" },
+  { label: "Benefits", href: "/benefits" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "FAQ", href: "/patient-faq" },
 ];
 
 const providerLinks = [
@@ -59,34 +58,39 @@ export function Nav() {
           </Link>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 24, paddingRight: 32, fontSize: 11, letterSpacing: 0.5 }}>
-          <Link href="/about" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }} className="nav-link">ABOUT</Link>
-          <Link href="/contact-us" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }} className="nav-link">CONTACT US</Link>
+          <Link href="/about" style={{ color: pathname === "/about" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/about" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/about" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">ABOUT</Link>
+          <Link href="/contact-us" style={{ color: pathname === "/contact-us" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/contact-us" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/contact-us" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">CONTACT US</Link>
         </div>
       </div>
 
       {/* Main nav */}
       <div style={{ background: "#fff", height: NAV_MAIN, borderBottom: `1px solid ${C.grayLight}` }}>
-        <div className="wrap" style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 32px" }}>
           <Link href="/" style={{ display: "flex", alignItems: "center" }}>
             <Image
               src="/images/Logo-Earlens-r-Mar19_cmyk_cmyk.jpg"
               alt="Earlens"
-              width={120}
-              height={32}
-              style={{ objectFit: "contain", height: 32, width: "auto" }}
+              width={180}
+              height={48}
+              style={{ objectFit: "contain", height: 48, width: "auto" }}
               priority
             />
           </Link>
           <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            {links.map((l, i) => (
-              <Link key={i} href={l.href} className="nav-link" style={{
-                display: "flex", alignItems: "center", gap: 4, padding: "8px 12px",
-                color: C.grayDark, fontSize: 13, fontWeight: 500, whiteSpace: "nowrap",
-                transition: "color 0.2s", textDecoration: "none",
-              }}>
-                {l.label} {l.drop && Ico.chevDown}
-              </Link>
-            ))}
+            {links.map((l, i) => {
+              const isActive = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+              return (
+                <Link key={i} href={l.href} className="nav-link" style={{
+                  display: "flex", alignItems: "center", gap: 4, padding: "8px 16px",
+                  color: isActive ? C.teal : C.grayDark,
+                  fontSize: 15, fontWeight: isActive ? 700 : 500, whiteSpace: "nowrap",
+                  transition: "color 0.2s", textDecoration: "none",
+                  borderBottom: isActive ? `2px solid ${C.teal}` : "2px solid transparent",
+                }}>
+                  {l.label} {l.drop && Ico.chevDown}
+                </Link>
+              );
+            })}
             <Link href={page === "patient" ? "/#find-provider" : "/provider#become"} style={{
               background: C.teal, color: "#fff", padding: "9px 20px", borderRadius: 4,
               fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",

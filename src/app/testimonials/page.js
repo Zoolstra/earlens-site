@@ -1,3 +1,4 @@
+import { client, urlFor } from "@/sanity/client";
 import { PageHero } from "@/components/PageHero";
 import { FadeIn } from "@/components/FadeIn";
 import { PatientCTA } from "@/components/patient/PatientCTA";
@@ -78,7 +79,11 @@ const doctors = [
   },
 ];
 
-export default function TestimonialsPage() {
+export default async function TestimonialsPage() {
+  const [sanityTestimonials, sanityAudiologists] = await Promise.all([
+    client.fetch(`*[_type == "testimonial"] | order(order asc)`),
+    client.fetch(`*[_type == "audiologist"] | order(order asc)`),
+  ]);
   return (
     <>
       <PageHero
@@ -92,7 +97,9 @@ export default function TestimonialsPage() {
       <section style={{ padding: "100px 0", background: C.white }}>
         <div className="wrap">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-            {stories.map((s, i) => (
+            {(sanityTestimonials.length > 0 ? sanityTestimonials : stories).map((s, i) => {
+              const photoUrl = s.photo?.asset ? urlFor(s.photo).width(600).height(360).fit("crop").url() : null;
+              return (
               <FadeIn key={i} delay={i * 0.08}>
                 <div style={{
                   background: C.white,
@@ -103,7 +110,6 @@ export default function TestimonialsPage() {
                   display: "flex",
                   flexDirection: "column",
                 }}>
-                  {/* Video placeholder */}
                   <div style={{
                     height: 180,
                     background: `linear-gradient(135deg, ${C.blue} 0%, #0f4d7a 100%)`,
@@ -111,25 +117,16 @@ export default function TestimonialsPage() {
                     alignItems: "center",
                     justifyContent: "center",
                     position: "relative",
-                    cursor: "pointer",
+                    overflow: "hidden",
                   }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: "50%",
-                      background: "rgba(255,255,255,0.15)",
-                      backdropFilter: "blur(8px)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "#fff",
-                      border: "2px solid rgba(255,255,255,0.3)",
-                    }}>
-                      {Ico.play}
-                    </div>
-                    <div style={{
-                      position: "absolute", bottom: 12, left: 16,
-                      color: "rgba(255,255,255,0.7)", fontSize: 11,
-                      fontStyle: "italic",
-                    }}>
-                      Patient story video
-                    </div>
+                    {photoUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={photoUrl} alt={s.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    ) : (
+                      <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 26, fontWeight: 700 }}>
+                        {s.name[0]}
+                      </div>
+                    )}
                   </div>
                   <div style={{ padding: "28px 28px 32px", flex: 1, display: "flex", flexDirection: "column" }}>
                     <div style={{ marginBottom: 16 }}>{Ico.quote}</div>
@@ -169,7 +166,8 @@ export default function TestimonialsPage() {
                   </div>
                 </div>
               </FadeIn>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -188,36 +186,39 @@ export default function TestimonialsPage() {
             </div>
           </FadeIn>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-            {doctors.map((d, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div style={{
-                  background: C.white,
-                  borderRadius: 20,
-                  padding: "36px 32px",
-                  border: `1px solid ${C.grayLight}`,
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
-                }}>
-                  <div style={{ marginBottom: 12 }}>{Ico.quote}</div>
-                  <p style={{ color: C.text, fontSize: 15, lineHeight: 1.7, fontStyle: "italic", marginBottom: 28 }}>
-                    &ldquo;{d.text}&rdquo;
-                  </p>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{
-                      width: 48, height: 48, borderRadius: "50%",
-                      background: C.blue,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "#fff", fontWeight: 700, fontSize: 14,
-                    }}>
-                      {d.name.split(" ").slice(1, 3).map(n => n[0]).join("")}
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 700, color: C.text, fontSize: 14 }}>{d.name}</div>
-                      <div style={{ color: C.gray, fontSize: 12 }}>{d.title}</div>
+            {(sanityAudiologists.length > 0 ? sanityAudiologists : doctors).map((d, i) => {
+              const photoUrl = d.photo?.asset ? urlFor(d.photo).width(96).height(96).fit("crop").url() : null;
+              return (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <div style={{
+                    background: C.white,
+                    borderRadius: 20,
+                    padding: "36px 32px",
+                    border: `1px solid ${C.grayLight}`,
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
+                  }}>
+                    <div style={{ marginBottom: 12 }}>{Ico.quote}</div>
+                    <p style={{ color: C.text, fontSize: 15, lineHeight: 1.7, fontStyle: "italic", marginBottom: 28 }}>
+                      &ldquo;{d.text}&rdquo;
+                    </p>
+                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                      {photoUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={photoUrl} alt={d.name} style={{ width: 48, height: 48, borderRadius: "50%", objectFit: "cover" }} />
+                      ) : (
+                        <div style={{ width: 48, height: 48, borderRadius: "50%", background: C.blue, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 14 }}>
+                          {d.name.split(" ").slice(1, 3).map(n => n[0]).join("")}
+                        </div>
+                      )}
+                      <div>
+                        <div style={{ fontWeight: 700, color: C.text, fontSize: 14 }}>{d.name}</div>
+                        <div style={{ color: C.gray, fontSize: 12 }}>{d.title}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>

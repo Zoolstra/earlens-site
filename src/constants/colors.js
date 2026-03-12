@@ -19,6 +19,6 @@ export const C = {
   gold: "#F59E0B",
 };
 
-export const NAV_TOP = 34;
-export const NAV_MAIN = 60;
+export const NAV_TOP = 40;
+export const NAV_MAIN = 80;
 export const NAV_TOTAL = NAV_TOP + NAV_MAIN;
