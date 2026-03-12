@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { C } from "@/constants/colors";
-import { EarlensLogo } from "./EarlensLogo";
 
 const patientCols = [
   { title: "For Patients", links: [
@@ -59,7 +59,13 @@ export function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 48, paddingBottom: 48, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
           <div>
             <div style={{ marginBottom: 16 }}>
-              <EarlensLogo height={30} />
+              <Image
+                src="/images/Logo-Earlens-r-Mar19_white_white.png"
+                alt="Earlens"
+                width={120}
+                height={30}
+                style={{ objectFit: "contain", height: 30, width: "auto" }}
+              />
             </div>
             <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, lineHeight: 1.7, maxWidth: 240 }}>
               The only hearing aid designed to mimic the natural hearing process.

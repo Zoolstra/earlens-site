@@ -1,13 +1,17 @@
+import Image from "next/image";
 import { Ico } from "@/constants/icons";
 
 const configs = {
   device: {
     bg: "linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+    photo: "/images/MC_Earlens_Clear_Tip_900x600.png",
     label: "Earlens Device",
     sub: "Behind-the-ear processor + Lens",
   },
   lens: {
     bg: "linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%)",
+    photo: "/images/hand_w_lens_2022.png",
+    objectPosition: "left center",
     label: "The Lens",
     sub: "Tiny enough for a fingertip",
   },
@@ -19,6 +23,7 @@ const configs = {
   },
   hand: {
     bg: "linear-gradient(145deg, #0a0a0a 0%, #1a1a2e 100%)",
+    photo: "/images/Earlens_3D_Render_New.png",
     label: "Incredibly Small",
     sub: "Custom-fit to your ear",
   },
@@ -27,6 +32,14 @@ const configs = {
 export function ProductImage({ variant = "device", style: s = {} }) {
   const c = configs[variant] || configs.device;
   const isDark = !c.dark;
+
+  if (c.photo) {
+    return (
+      <div style={{ position: "relative", borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", ...s }}>
+        <Image src={c.photo} alt={c.label} fill style={{ objectFit: "cover", objectPosition: c.objectPosition || "center" }} />
+      </div>
+    );
+  }
 
   return (
     <div style={{ position: "relative", borderRadius: 20, overflow: "hidden", background: c.bg, aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", ...s }}>

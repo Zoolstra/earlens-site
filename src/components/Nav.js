@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { C, NAV_TOP, NAV_MAIN } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
-import { EarlensLogo } from "./EarlensLogo";
 
 const patientLinks = [
   { label: "Why Earlens", href: "/#why", drop: true },
@@ -68,7 +68,14 @@ export function Nav() {
       <div style={{ background: "#fff", height: NAV_MAIN, borderBottom: `1px solid ${C.grayLight}` }}>
         <div className="wrap" style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ display: "flex", alignItems: "center" }}>
-            <EarlensLogo height={32} />
+            <Image
+              src="/images/Logo-Earlens-r-Mar19_cmyk_cmyk.jpg"
+              alt="Earlens"
+              width={120}
+              height={32}
+              style={{ objectFit: "contain", height: 32, width: "auto" }}
+              priority
+            />
           </Link>
           <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
             {links.map((l, i) => (

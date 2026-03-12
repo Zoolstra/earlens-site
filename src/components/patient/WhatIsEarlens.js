@@ -29,8 +29,7 @@ export function WhatIsEarlens() {
             { title: "The Tip", desc: "A comfortable ear tip that channels light from the processor to activate the Lens on your eardrum.", img: "hand", accent: C.green },
           ].map((part, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div style={{ border: part.featured ? `2px solid ${part.accent}` : `1px solid ${C.grayLight}`, borderRadius: 20, overflow: "hidden", background: "#fff", boxShadow: part.featured ? `0 8px 40px ${part.accent}20` : "none" }}>
-                {part.featured && <div style={{ background: part.accent, color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: 1, textAlign: "center", padding: "6px 0" }}>KEY COMPONENT</div>}
+              <div style={{ border: `1px solid ${C.grayLight}`, borderRadius: 20, overflow: "hidden", background: "#fff" }}>
                 <ProductImage variant={part.img} />
                 <div style={{ padding: 24 }}>
                   <div style={{ width: 40, height: 4, borderRadius: 2, background: part.accent, marginBottom: 12 }} />
@@ -58,8 +57,8 @@ export function WhatIsEarlens() {
                 ))}
               </div>
             </div>
-            <div style={{ width: 120, height: 120, borderRadius: "50%", background: `linear-gradient(135deg, ${C.blue}, ${C.teal})`, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", flexShrink: 0 }}>
-              {Ico.ear(48)}
+            <div style={{ flexShrink: 0 }}>
+              <img src="/images/MC_Earlens_FullResSmall rubber_layers_NoBG_NoShadow.png" alt="Earlens layers" style={{ width: 200, height: "auto", display: "block" }} />
             </div>
           </div>
         </FadeIn>
