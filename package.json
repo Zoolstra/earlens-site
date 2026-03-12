@@ -10,10 +10,12 @@
   "dependencies": {
     "@sanity/client": "^7.17.0",
     "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.15.0",
     "next": "^16.1.6",
     "next-sanity": "^12.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "sanity": "^5.15.0"
+    "sanity": "^5.15.0",
+    "styled-components": "^6.3.11"
   }
 }
