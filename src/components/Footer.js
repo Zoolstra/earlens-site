@@ -21,8 +21,6 @@ const patientCols = [
   ]},
   { title: "Company", links: [
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press", href: "/press" },
     { label: "Contact", href: "/contact" },
   ]},
 ];
@@ -36,8 +34,6 @@ const providerCols = [
   ]},
   { title: "Company", links: [
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Press", href: "/press" },
     { label: "Contact", href: "/contact" },
   ]},
 ];
