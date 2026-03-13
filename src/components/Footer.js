@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { C } from "@/constants/colors";
 
-const patientCols = [
+const cols = [
   { title: "For Patients", links: [
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Patient Stories", href: "/#stories" },
@@ -21,34 +20,17 @@ const patientCols = [
   ]},
   { title: "Company", links: [
     { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
-  ]},
-];
-
-const providerCols = [
-  { title: "For Providers", links: [
-    { label: "Research", href: "/provider#research" },
-    { label: "Training", href: "/provider#training" },
-    { label: "Orders", href: "/provider#orders" },
-    { label: "Portal", href: "/provider#portal" },
-  ]},
-  { title: "Company", links: [
-    { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/contact-us" },
   ]},
 ];
 
 export function Footer() {
-  const pathname = usePathname();
-  const page = pathname === "/provider" ? "provider" : "patient";
-  const cols = page === "patient" ? patientCols : providerCols;
-
   return (
     <footer style={{ background: C.blue, color: "#fff" }}>
       <div className="wrap">
 
         {/* Main footer grid */}
-        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: page === "patient" ? "1.8fr 1fr 1fr 1fr" : "1.8fr 1fr 1fr", gap: 64, padding: "64px 0 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.8fr 1fr 1fr 1fr", gap: 64, padding: "64px 0 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
 
           {/* Brand column */}
           <div>

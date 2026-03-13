@@ -22,8 +22,7 @@ export function PatientHero() {
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
             <Link href="/schedule-virtual-consultation" style={{ background: C.teal, color: "#fff", padding: "13px 28px", borderRadius: 6, fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
-              {Ico.play}
-              Hear a Demo
+              Schedule a Virtual Consultation
             </Link>
           </div>
         </div>

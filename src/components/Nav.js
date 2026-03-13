@@ -23,7 +23,6 @@ const providerLinks = [
   ]},
   { label: "Research", href: "/provider/research" },
   { label: "FAQ", href: "/provider#faq" },
-  { label: "Provider Training", href: "/provider#training" },
   { label: "Orders", href: "/provider/orders" },
   { label: "Product Registration", href: "/provider#registration" },
   { label: "Portal", href: "/provider#portal" },
