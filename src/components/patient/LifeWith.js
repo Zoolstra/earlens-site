@@ -11,26 +11,26 @@ export function LifeWith() {
     { title: "Grandchildren's Whispers", desc: "Catch every giggle, every secret, every tiny voice.", icon: Ico.heart() },
   ];
   return (
-    <section style={{ padding: "100px 0", background: C.warm }}>
+    <section style={{ padding: "80px 0", background: C.warm }}>
       <div className="wrap">
         <FadeIn>
-          <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto 64px" }}>
-            <div style={{ color: C.teal, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Life With Earlens</div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>
+          <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 48px" }}>
+            <div style={{ color: C.teal, fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>Life With Earlens</div>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>
               Moments You&apos;ll Hear Again
             </h2>
           </div>
         </FadeIn>
-        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
           {moments.map((m, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div style={{ background: C.white, borderRadius: 20, padding: "36px 40px", border: `1px solid ${C.warmBorder}`, display: "flex", gap: 24, alignItems: "flex-start" }}>
-                <div style={{ width: 56, height: 56, borderRadius: 16, background: C.tealLight, display: "flex", alignItems: "center", justifyContent: "center", color: C.teal, flexShrink: 0 }}>
+              <div style={{ background: C.white, borderRadius: 16, padding: "28px 32px", border: `1px solid ${C.warmBorder}`, display: "flex", gap: 20, alignItems: "flex-start" }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: C.tealLight, display: "flex", alignItems: "center", justifyContent: "center", color: C.teal, flexShrink: 0 }}>
                   {m.icon}
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: 18, color: C.text, marginBottom: 8 }}>{m.title}</div>
-                  <div style={{ color: C.textLight, fontSize: 15, lineHeight: 1.6 }}>{m.desc}</div>
+                  <div style={{ fontWeight: 700, fontSize: 16, color: C.text, marginBottom: 6 }}>{m.title}</div>
+                  <div style={{ color: C.textLight, fontSize: 14, lineHeight: 1.6 }}>{m.desc}</div>
                 </div>
               </div>
             </FadeIn>

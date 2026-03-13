@@ -6,12 +6,18 @@ import { C } from "@/constants/colors";
 
 const patientCols = [
   { title: "For Patients", links: [
-    { label: "Why Earlens", href: "/#why" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Patient Stories", href: "/#stories" },
     { label: "Find a Provider", href: "/#find-provider" },
     { label: "FAQ", href: "/#faq" },
     { label: "Instructions for Use", href: "/instructions-for-use" },
+  ]},
+  { title: "For Providers", links: [
+    { label: "Patient Outcomes", href: "/provider/patient-outcomes" },
+    { label: "Practice Growth", href: "/provider/practice-growth" },
+    { label: "Unique Technology", href: "/provider/unique-technology" },
+    { label: "Research", href: "/provider/research" },
+    { label: "Become a Provider", href: "/become-a-provider" },
   ]},
   { title: "Company", links: [
     { label: "About Us", href: "/about" },
@@ -23,7 +29,6 @@ const patientCols = [
 
 const providerCols = [
   { title: "For Providers", links: [
-    { label: "Why Earlens", href: "/provider#why" },
     { label: "Research", href: "/provider#research" },
     { label: "Training", href: "/provider#training" },
     { label: "Orders", href: "/provider#orders" },
@@ -47,7 +52,7 @@ export function Footer() {
       <div className="wrap">
 
         {/* Main footer grid */}
-        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.8fr 1fr 1fr", gap: 64, padding: "64px 0 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: page === "patient" ? "1.8fr 1fr 1fr 1fr" : "1.8fr 1fr 1fr", gap: 64, padding: "64px 0 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
 
           {/* Brand column */}
           <div>

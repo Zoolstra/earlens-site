@@ -14,28 +14,28 @@ export function Comparison() {
     { feature: "Open Ear Canal", trad: "Often blocked", earlens: "Yes — natural ventilation" },
   ];
   return (
-    <section id="compare" style={{ padding: "100px 0", background: C.light }}>
+    <section id="compare" style={{ padding: "80px 0", background: C.light }}>
       <div className="wrap">
         <FadeIn>
-          <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto 56px" }}>
-            <div style={{ color: C.teal, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Compare</div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>
+          <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 44px" }}>
+            <div style={{ color: C.teal, fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>Compare</div>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>
               Earlens vs. Traditional Hearing Aids
             </h2>
-            <p style={{ color: C.textLight, fontSize: 17, marginTop: 16, lineHeight: 1.6 }}>
+            <p style={{ color: C.textLight, fontSize: 16, marginTop: 14, lineHeight: 1.6 }}>
               See why Earlens delivers a hearing experience no conventional hearing aid can match.
             </p>
           </div>
         </FadeIn>
         <FadeIn>
-          <div style={{ borderRadius: 20, overflow: "hidden", boxShadow: "0 4px 40px rgba(0,0,0,0.08)", border: `1px solid ${C.grayLight}` }}>
-            <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", background: C.blue, padding: "16px 32px" }}>
+          <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 2px 24px rgba(0,0,0,0.07)", border: `1px solid ${C.grayLight}` }}>
+            <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", background: C.blue, padding: "14px 28px" }}>
               <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>FEATURE</div>
               <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>TRADITIONAL</div>
               <div style={{ color: C.tealLight, fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>EARLENS</div>
             </div>
             {rows.map((r, i) => (
-              <div key={i} className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", padding: "18px 32px", borderBottom: i < rows.length - 1 ? `1px solid ${C.grayLight}` : "none", background: i % 2 === 0 ? C.white : C.light }}>
+              <div key={i} className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", padding: "15px 28px", borderBottom: i < rows.length - 1 ? `1px solid ${C.grayLight}` : "none", background: i % 2 === 0 ? C.white : C.light }}>
                 <div style={{ fontWeight: 600, color: C.text, fontSize: 14 }}>{r.feature}</div>
                 <div style={{ color: C.gray, fontSize: 14 }}>{r.trad}</div>
                 <div style={{ color: C.teal, fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 6 }}>

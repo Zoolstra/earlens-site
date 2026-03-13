@@ -1,32 +1,30 @@
 "use client";
+import Link from "next/link";
 import { C, NAV_TOTAL } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 import { ProductImage } from "@/components/ProductImage";
 
 export function PatientHero() {
   return (
-    <section style={{ background: `linear-gradient(135deg, ${C.blue} 0%, #0f4d7a 50%, ${C.teal} 100%)`, minHeight: `calc(90vh - ${NAV_TOTAL}px)`, display: "flex", alignItems: "center", padding: "80px 0", position: "relative", overflow: "hidden" }}>
-      <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", position: "relative", zIndex: 1 }}>
+    <section style={{ background: `linear-gradient(135deg, ${C.blue} 0%, #0f4d7a 50%, ${C.teal} 100%)`, minHeight: `calc(80vh - ${NAV_TOTAL}px)`, display: "flex", alignItems: "center", padding: "64px 0", position: "relative", overflow: "hidden" }}>
+      <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center", position: "relative", zIndex: 1 }}>
         <div>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.1)", borderRadius: 20, padding: "6px 14px", marginBottom: 24 }}>
             <span style={{ color: C.tealLight, fontSize: 12, fontWeight: 600 }}>
               FDA-Cleared &middot; Clinically Proven
             </span>
           </div>
-          <h1 style={{ fontSize: "clamp(36px, 5vw, 64px)", fontWeight: 900, color: "#fff", lineHeight: 1.1, marginBottom: 24 }}>
+          <h1 style={{ fontSize: "clamp(32px, 4vw, 54px)", fontWeight: 800, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
             Rediscover the Sounds You&apos;ve Been Missing
           </h1>
-          <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 18, lineHeight: 1.7, marginBottom: 40 }}>
+          <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
             Earlens uses a tiny lens on your eardrum to deliver the richest, most natural sound of any hearing aid &mdash; so you can hear conversations, music, and life with stunning clarity.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 40 }}>
-            <button style={{ background: C.teal, color: "#fff", padding: "16px 32px", borderRadius: 6, fontSize: 15, fontWeight: 700, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
-              Find a Provider {Ico.arrow}
-            </button>
-            <button style={{ background: "transparent", color: "#fff", padding: "16px 24px", borderRadius: 6, fontSize: 15, fontWeight: 600, border: "2px solid rgba(255,255,255,0.3)", cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
+            <Link href="/schedule-virtual-consultation" style={{ background: C.teal, color: "#fff", padding: "13px 28px", borderRadius: 6, fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
               {Ico.play}
-              See How It Works
-            </button>
+              Hear a Demo
+            </Link>
           </div>
         </div>
         <div style={{ position: "relative" }}>

@@ -11,15 +11,20 @@ const patientLinks = [
   { label: "Benefits", href: "/benefits" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "FAQ", href: "/patient-faq" },
+  { label: "Support", href: "/support" },
   { label: "Schedule Virtual Consultation", href: "/schedule-virtual-consultation" },
 ];
 
 const providerLinks = [
-  { label: "Why Earlens", href: "/provider#why", primary: true },
+  { label: "Why Earlens", href: "/provider#why", primary: true, drop: [
+    { label: "Patient Outcomes", href: "/provider/patient-outcomes" },
+    { label: "Practice Growth", href: "/provider/practice-growth" },
+    { label: "Unique Technology", href: "/provider/unique-technology" },
+  ]},
   { label: "Research", href: "/provider/research" },
   { label: "FAQ", href: "/provider#faq" },
   { label: "Provider Training", href: "/provider#training" },
-  { label: "Orders", href: "/provider#orders" },
+  { label: "Orders", href: "/provider/orders" },
   { label: "Product Registration", href: "/provider#registration" },
   { label: "Portal", href: "/provider#portal" },
 ];

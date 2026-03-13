@@ -11,30 +11,26 @@ export function HowItWorks() {
     { num: "04", title: "Hear the Difference", desc: "Your processor is programmed to your hearing profile. You'll hear sounds you've missed for years.", icon: Ico.heart(), color: C.green },
   ];
   return (
-    <section id="how-it-works" style={{ padding: "100px 0", background: C.white }}>
+    <section id="how-it-works" style={{ padding: "80px 0", background: C.white }}>
       <div className="wrap">
         <FadeIn>
-          <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto 64px" }}>
-            <div style={{ color: C.teal, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Your Journey</div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>How It Works</h2>
-            <p style={{ color: C.textLight, fontSize: 17, marginTop: 16, lineHeight: 1.6 }}>
+          <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 48px" }}>
+            <div style={{ color: C.teal, fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>Your Journey</div>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>How It Works</h2>
+            <p style={{ color: C.textLight, fontSize: 16, marginTop: 14, lineHeight: 1.6 }}>
               From first visit to first &ldquo;wow&rdquo; moment &mdash; here&apos;s what to expect.
             </p>
           </div>
         </FadeIn>
-        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, position: "relative" }}>
-          <div style={{ position: "absolute", top: 52, left: "12.5%", right: "12.5%", height: 2, background: `linear-gradient(90deg, ${C.teal}, ${C.blue})`, zIndex: 0 }} />
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
           {steps.map((s, i) => (
             <FadeIn key={i} delay={i * 0.15}>
-              <div style={{ background: C.white, borderRadius: 20, padding: "32px 24px", textAlign: "center", border: `1px solid ${C.grayLight}`, position: "relative", zIndex: 1, boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
-                <div style={{ width: 64, height: 64, borderRadius: "50%", background: s.color, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", color: "#fff", fontSize: 22, fontWeight: 800, border: "4px solid #fff", boxShadow: `0 0 0 2px ${s.color}` }}>
-                  {s.num}
-                </div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 12 }}>
+              <div style={{ background: C.white, borderRadius: 16, padding: "28px 20px", textAlign: "center", border: `1px solid ${C.grayLight}`, boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginBottom: 10 }}>
                   <div style={{ color: s.color }}>{s.icon}</div>
-                  <div style={{ fontWeight: 700, fontSize: 15, color: C.text }}>{s.title}</div>
+                  <div style={{ fontWeight: 700, fontSize: 14, color: C.text }}>{s.title}</div>
                 </div>
-                <div style={{ color: C.textLight, fontSize: 14, lineHeight: 1.6 }}>{s.desc}</div>
+                <div style={{ color: C.textLight, fontSize: 13, lineHeight: 1.6 }}>{s.desc}</div>
               </div>
             </FadeIn>
           ))}

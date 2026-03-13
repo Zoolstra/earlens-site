@@ -13,41 +13,41 @@ export function PatientStories() {
   ];
   const s = stories[idx];
   return (
-    <section id="stories" style={{ padding: "100px 0", background: `linear-gradient(135deg, ${C.blue} 0%, #0f3d6a 100%)` }}>
+    <section id="stories" style={{ padding: "80px 0", background: `linear-gradient(135deg, ${C.blue} 0%, #0f3d6a 100%)` }}>
       <div className="wrap">
         <FadeIn>
-          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 80, alignItems: "center" }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 60, alignItems: "center" }}>
             <div>
-              <div style={{ color: C.tealLight, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>
+              <div style={{ color: C.tealLight, fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>
                 Patient Stories
               </div>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, marginBottom: 24 }}>
+              <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, marginBottom: 16 }}>
                 Real People,<br />Real Moments
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 16, lineHeight: 1.6, marginBottom: 32 }}>
+              <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15, lineHeight: 1.6, marginBottom: 28 }}>
                 Every Earlens patient has a story.
               </p>
               <div style={{ display: "flex", gap: 8 }}>
                 {stories.map((_, i) => (
-                  <button key={i} onClick={() => setIdx(i)} style={{ width: i === idx ? 44 : 12, height: 12, borderRadius: 6, border: "none", background: i === idx ? C.teal : C.grayLight, cursor: "pointer", transition: "all 0.3s" }} />
+                  <button key={i} onClick={() => setIdx(i)} style={{ width: i === idx ? 36 : 10, height: 10, borderRadius: 5, border: "none", background: i === idx ? C.teal : "rgba(255,255,255,0.2)", cursor: "pointer", transition: "all 0.3s" }} />
                 ))}
               </div>
             </div>
-            <div style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)", borderRadius: 24, padding: "48px", border: "1px solid rgba(255,255,255,0.1)" }}>
-              <div style={{ marginBottom: 16 }}>{Ico.quote}</div>
-              <div style={{ display: "flex", gap: 4, marginBottom: 24 }}>
+            <div style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)", borderRadius: 20, padding: "36px 40px", border: "1px solid rgba(255,255,255,0.1)" }}>
+              <div style={{ marginBottom: 12 }}>{Ico.quote}</div>
+              <div style={{ display: "flex", gap: 3, marginBottom: 18 }}>
                 {[1,2,3,4,5].map(n => <span key={n}>{Ico.starFill()}</span>)}
               </div>
-              <p style={{ color: "#fff", fontSize: 20, lineHeight: 1.7, fontStyle: "italic", marginBottom: 32 }}>
+              <p style={{ color: "#fff", fontSize: 17, lineHeight: 1.7, fontStyle: "italic", marginBottom: 28 }}>
                 &ldquo;{s.text}&rdquo;
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                <div style={{ width: 52, height: 52, borderRadius: "50%", background: C.teal, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 800, fontSize: 20 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                <div style={{ width: 44, height: 44, borderRadius: "50%", background: C.teal, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 800, fontSize: 17 }}>
                   {s.name[0]}
                 </div>
                 <div>
-                  <div style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>{s.name}</div>
-                  <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>
+                  <div style={{ color: "#fff", fontWeight: 700, fontSize: 15 }}>{s.name}</div>
+                  <div style={{ color: "rgba(255,255,255,0.45)", fontSize: 12 }}>
                     Age {s.age} &middot; {s.loc} &middot; {s.years}
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { C } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 import { FadeIn } from "@/components/FadeIn";
@@ -7,12 +8,12 @@ export function PatientCTA() {
   return (
     <section style={{
       background: `linear-gradient(135deg, ${C.blue} 0%, ${C.teal} 100%)`,
-      padding: "100px 0",
+      padding: "80px 0",
       position: "relative",
       overflow: "hidden",
     }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.05 }}>
-        {[200, 350, 500].map((r) => (
+        {[160, 280, 400].map((r) => (
           <div key={r} style={{
             position: "absolute", top: "50%", left: "50%",
             transform: "translate(-50%,-50%)",
@@ -23,34 +24,26 @@ export function PatientCTA() {
       </div>
       <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
         <FadeIn>
-          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", maxWidth: 580, margin: "0 auto" }}>
             <h2 style={{
-              fontSize: "clamp(28px, 4vw, 44px)",
+              fontSize: "clamp(24px, 3vw, 38px)",
               fontWeight: 800, color: "#fff",
-              marginBottom: 16, lineHeight: 1.2,
+              marginBottom: 14, lineHeight: 1.2,
             }}>
               Ready to Hear What You&apos;ve Been Missing?
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 18, marginBottom: 40 }}>
+            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 16, marginBottom: 32 }}>
               Find an Earlens provider near you and take the first step toward the best hearing of your life.
             </p>
-            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <button style={{
+            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/contact-us" style={{
                 background: "#fff", color: C.blue,
-                padding: "16px 36px", borderRadius: 6,
-                fontSize: 15, fontWeight: 700, border: "none",
-                cursor: "pointer", display: "flex", alignItems: "center", gap: 8,
+                padding: "13px 30px", borderRadius: 6,
+                fontSize: 14, fontWeight: 700,
+                textDecoration: "none", display: "flex", alignItems: "center", gap: 8,
               }}>
-                Find a Provider {Ico.arrow}
-              </button>
-              <button style={{
-                background: "transparent", color: "#fff",
-                padding: "16px 36px", borderRadius: 6,
-                fontSize: 15, fontWeight: 600,
-                border: "2px solid rgba(255,255,255,0.4)", cursor: "pointer",
-              }}>
-                Call 1-800-EARLENS
-              </button>
+                Contact Us {Ico.arrow}
+              </Link>
             </div>
           </div>
         </FadeIn>
