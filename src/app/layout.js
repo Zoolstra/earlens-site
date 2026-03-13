@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { AuthProvider } from "@/context/AuthContext";
+import { SiteAuthGuard } from "@/components/SiteAuthGuard";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,9 +20,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <Nav />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <SiteAuthGuard>
+            <Nav />
+            {children}
+            <Footer />
+          </SiteAuthGuard>
+        </AuthProvider>
       </body>
     </html>
   );

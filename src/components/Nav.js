@@ -2,9 +2,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { C, NAV_TOP, NAV_MAIN } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
+import { useAuth } from "@/context/AuthContext";
 
 const patientLinks = [
   { label: "Home", href: "/" },
@@ -30,11 +31,18 @@ const providerLinks = [
 
 export function Nav() {
   const pathname = usePathname();
+  const router = useRouter();
   const page = pathname === "/provider" || pathname.startsWith("/provider/") || pathname === "/become-a-provider" ? "provider" : "patient";
   const [scrolled, setScrolled] = useState(false);
   const [openDrop, setOpenDrop] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = page === "patient" ? patientLinks : providerLinks;
+  const { user, signOut } = useAuth() || {};
+
+  async function handleSignOut() {
+    await signOut();
+    router.push("/provider/login");
+  }
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 20);
@@ -73,6 +81,14 @@ export function Nav() {
         <div className="nav-top-right" style={{ display: "flex", alignItems: "center", gap: 28, paddingRight: 36, fontSize: 12, letterSpacing: 1 }}>
           <Link href="/about" style={{ color: pathname === "/about" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/about" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/about" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">ABOUT</Link>
           <Link href="/contact-us" style={{ color: pathname === "/contact-us" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/contact-us" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/contact-us" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">CONTACT US</Link>
+          {user && (
+            <button
+              onClick={handleSignOut}
+              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.25)", borderRadius: 4, color: "rgba(255,255,255,0.85)", fontSize: 11, fontWeight: 700, letterSpacing: 1, padding: "5px 12px", cursor: "pointer" }}
+            >
+              SIGN OUT
+            </button>
+          )}
         </div>
       </div>
 
