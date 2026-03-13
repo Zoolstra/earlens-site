@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { C, NAV_TOTAL } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 
@@ -21,13 +22,9 @@ export function ProviderHero() {
           The only hearing aid designed to mimic the natural hearing process &mdash; delivering the broadest audible bandwidth for superior sound quality and speech understanding.
         </p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 56 }}>
-          <button style={{ background: C.teal, color: "#fff", padding: "16px 32px", borderRadius: 6, fontSize: 15, fontWeight: 700, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+          <Link href="/become-a-provider" style={{ background: C.teal, color: "#fff", padding: "16px 32px", borderRadius: 6, fontSize: 15, fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
             Become a Provider {Ico.arrow}
-          </button>
-          <button style={{ background: "transparent", color: "#fff", padding: "16px 24px", borderRadius: 6, fontSize: 15, fontWeight: 600, border: "2px solid rgba(255,255,255,0.3)", cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
-            {Ico.play}
-            Watch How It Works
-          </button>
+          </Link>
         </div>
         <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
           {[{ v: "10+", l: "Years of Research" }, { v: "50+", l: "Published Studies" }, { v: "98%", l: "Patient Satisfaction" }].map((b, i) => (

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { FadeIn } from "@/components/FadeIn";
 import { PatientCTA } from "@/components/patient/PatientCTA";
@@ -12,98 +13,98 @@ const sections = [
     color: C.teal,
     items: [
       {
-        q: "How is Earlens different from a regular hearing aid?",
-        a: "Traditional hearing aids amplify sound through a tiny speaker inside the ear canal. No matter how sophisticated the electronics, the sound still has to travel through air to reach your eardrum — which limits the range of frequencies it can deliver. Earlens takes a completely different approach: we place a tiny custom Lens directly on your eardrum and use light energy to vibrate it, just like natural sound does. The result is a frequency range up to 10 kHz — far beyond the 6 kHz ceiling of conventional aids.",
+        q: "How is Earlens different from conventional hearing aids?",
+        a: "Earlens directly vibrates the eardrum instead of relying on speakers to amplify sound.",
       },
       {
-        q: "What is the Lens, exactly?",
-        a: "The Lens is a tiny, custom-manufactured component that your audiologist places directly on your eardrum. It's made of a biocompatible material and is so light you can't feel it. It contains a tiny actuator that responds to the light signal from the processor, vibrating the eardrum directly to produce sound.",
+        q: "Are there different programs for various listening situations?",
+        a: "Yes, customized programs can be created for different environments.",
       },
       {
-        q: "What does the processor do?",
-        a: "The processor is the behind-the-ear component. It contains a microphone, the processing electronics, the light source, and the rechargeable battery. It captures sound from your environment, processes it according to your hearing prescription, and converts it to a light signal that travels down through the ear tip to activate the Lens.",
+        q: "What size battery does the Earlens hearing solution use?",
+        a: "The Processor has an internal rechargeable battery. Each night, you will simply dock the Processor in the included charger.",
       },
       {
-        q: "Is Earlens FDA-cleared?",
-        a: "Yes. Earlens is an FDA-cleared medical device. It has been evaluated in extensive clinical trials and has been prescribed to thousands of patients across the United States.",
+        q: "Is there a battery in the Lens that sits on my eardrum?",
+        a: "No, the Lens is powered by the energy emitted by the Ear Tip, and does not require a battery.",
       },
       {
-        q: "Does Earlens have Bluetooth?",
-        a: "Yes. Earlens is a Made for iPhone device, meaning it can stream audio directly from your iPhone, iPad, or Apple Watch without a separate streaming accessory. You can stream phone calls, music, podcasts, and other audio directly.",
+        q: "Can I connect my Earlens to my smartphone?",
+        a: "Currently, Earlens is compatible with the Apple iPhone. You can take calls and stream music.",
       },
       {
-        q: "Is it rechargeable?",
-        a: "Yes. The behind-the-ear processor is fully rechargeable. Place it in the charging case overnight and it will be ready for a full day of use the next morning. No more tiny batteries.",
+        q: "Is Earlens available outside of the United States?",
+        a: "Earlens is currently only available within the United States.",
       },
     ],
   },
   {
-    title: "What It's Like to Wear",
+    title: "What It's Like to Wear Earlens",
     color: "#6366F1",
     items: [
       {
-        q: "Does it hurt to have the Lens placed?",
-        a: "No. The Lens is placed non-surgically by your audiologist in a routine office visit. Your audiologist uses a special instrument to position the Lens on your eardrum. The procedure is quick and the vast majority of patients report no discomfort during or after placement.",
+        q: "What is it like to wear the Earlens contact hearing solution?",
+        a: "Users report rich and natural sound; 3 out of 4 users reported improved hearing in noisy environments.",
       },
       {
-        q: "Can I feel the Lens on my eardrum?",
-        a: "Most patients report that once placed, they cannot feel the Lens at all. The eardrum has very few sensory nerve fibers for touch, so the presence of the Lens is typically imperceptible.",
+        q: "Is the Lens permanent?",
+        a: "No, the Lens can be removed at any time by an Earlens-trained Ear, Nose and Throat Physician.",
       },
       {
-        q: "Will Earlens be visible when I'm wearing it?",
-        a: "The Lens on your eardrum is completely invisible — even to most otoscopes. The behind-the-ear processor is similar in size and appearance to a standard behind-the-ear hearing aid. Your audiologist can work with you to match the processor color to your skin or hair.",
+        q: "Can you feel the Lens in your ear?",
+        a: "Most users feel initial slight sensation that goes away quickly.",
       },
       {
-        q: "What activities can I do with Earlens?",
-        a: "Earlens is designed for everyday life. Patients exercise, travel, and go about their normal routines with Earlens in place. You should avoid submerging the processor in water (the ear tip and Lens are water-resistant to a degree), and you'll remove the processor for sleeping and showering.",
+        q: "How does the Lens stay in place?",
+        a: "The Lens rests on the eardrum, much like a contact lens conforms to the eye. Mineral oil application helps maintain placement.",
       },
       {
-        q: "How long will it take to get used to Earlens?",
-        a: "Most patients adapt to Earlens within a few weeks. Because it delivers a broader frequency range than you may have heard in years, some patients initially notice sounds they had forgotten — like the high-frequency crinkle of paper or leaves in the wind. These typically become natural very quickly. Your audiologist will fine-tune your fit over follow-up appointments.",
+        q: "Can I remove and reinsert Earlens?",
+        a: "The Processor can be removed by users, but only trained ENT physicians can insert/remove the Lens.",
       },
     ],
   },
   {
-    title: "Pricing & Insurance",
+    title: "Pricing and Insurance",
     color: C.gold,
     items: [
       {
-        q: "How much does Earlens cost?",
-        a: "The cost of Earlens varies depending on your provider and your hearing profile. Earlens is priced comparably to other premium hearing aids, typically in the range of premium devices. Your provider will give you a detailed quote during your consultation.",
+        q: "Does insurance cover Earlens?",
+        a: "Most insurance plans do not cover hearing aids.",
       },
       {
-        q: "Is Earlens covered by insurance?",
-        a: "Coverage varies by insurance plan. Some commercial insurance plans, including certain Medicare Advantage plans, provide coverage for hearing aids. Your Earlens provider's patient care team will contact your insurance company on your behalf to verify your benefits before you make any decisions.",
+        q: "Is there a trial period?",
+        a: "Yes, please discuss the details of the trial period with your Earlens Provider.",
       },
       {
-        q: "Are there financing options?",
-        a: "Yes. Earlens works with providers to offer financing options that can help spread the cost over time. Ask your provider about financing during your consultation.",
+        q: "Is there a warranty?",
+        a: "Earlens comes with a 3-year warranty. Within the warranty period, there is no charge for component replacement.",
       },
     ],
   },
   {
-    title: "Maintenance & Care",
+    title: "Maintenance and Care",
     color: C.green,
     items: [
       {
-        q: "How often does the Lens need to be replaced?",
-        a: "The Lens is designed to remain on your eardrum indefinitely, though it is removed and replaced during routine hearing checks, typically every six to twelve months. Your audiologist will monitor the Lens during follow-up visits.",
+        q: "Can I shower or swim with Earlens on?",
+        a: "After removing the Processor and Ear Tip, normal showering/swimming is possible.",
       },
       {
-        q: "How do I clean the Earlens system?",
-        a: "The ear tip should be cleaned regularly with the tools your audiologist provides. The processor can be wiped clean with a dry or slightly damp cloth. Your audiologist will walk you through the cleaning routine at your fitting appointment.",
+        q: "How often do I need to see my doctor or audiologist?",
+        a: "After the initial fitting and fine-tuning of your devices, we suggest that you see your Earlens Hearing Professional once a year or as needed.",
       },
       {
-        q: "What if the Lens falls out?",
-        a: "Earlens are designed to remain securely in place during normal activities. In the rare event that a Lens comes out, simply contact your Earlens provider for a replacement placement appointment. Lens replacement is a routine procedure.",
+        q: "Is earwax buildup a problem for the Earlens hearing solution?",
+        a: "Generally not problematic; avoid cotton swabs. Mineral oil application helps move earwax naturally.",
       },
       {
-        q: "What is the warranty on Earlens?",
-        a: "The Earlens processor comes with a standard warranty covering manufacturing defects. Your provider will explain the full warranty terms at your fitting. Loss and damage coverage is also available.",
+        q: "If there is a problem with my Lens, can I use my old hearing aids as a backup?",
+        a: "Possibly, depending on hearing aid style—consult with provider first.",
       },
       {
-        q: "What happens if I need a repair?",
-        a: "Your Earlens provider is your first contact for any service needs. Earlens maintains a service program to ensure that patients can get their devices repaired or replaced promptly. Most repairs can be handled through your local provider.",
+        q: "Where can I find the Instructions for Use?",
+        a: "Call Earlens Concierge at 844-234-5367 or visit earlens.com/ifu/",
       },
     ],
   },
@@ -196,15 +197,15 @@ export default function PatientFAQPage() {
                 <div style={{ color: C.textLight, fontSize: 13, lineHeight: 1.6, marginBottom: 16 }}>
                   Our patient care team is here to help.
                 </div>
-                <button style={{
+                <Link href="/contact-us" style={{
                   background: C.teal, color: "#fff",
                   padding: "10px 20px", borderRadius: 8,
-                  fontSize: 13, fontWeight: 700, border: "none",
-                  cursor: "pointer", width: "100%",
+                  fontSize: 13, fontWeight: 700,
+                  width: "100%", textDecoration: "none",
                   display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                 }}>
                   Contact Us {Ico.arrow}
-                </button>
+                </Link>
               </div>
             </div>
           </FadeIn>

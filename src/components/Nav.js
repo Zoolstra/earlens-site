@@ -11,11 +11,12 @@ const patientLinks = [
   { label: "Benefits", href: "/benefits" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "FAQ", href: "/patient-faq" },
+  { label: "Schedule Virtual Consultation", href: "/schedule-virtual-consultation" },
 ];
 
 const providerLinks = [
-  { label: "Why Earlens", href: "/provider#why", drop: true },
-  { label: "Research", href: "/provider#research" },
+  { label: "Why Earlens", href: "/provider#why" },
+  { label: "Research", href: "/provider/research" },
   { label: "FAQ", href: "/provider#faq" },
   { label: "Provider Training", href: "/provider#training" },
   { label: "Orders", href: "/provider#orders" },
@@ -25,8 +26,9 @@ const providerLinks = [
 
 export function Nav() {
   const pathname = usePathname();
-  const page = pathname === "/provider" ? "provider" : "patient";
+  const page = pathname === "/provider" || pathname.startsWith("/provider/") || pathname === "/become-a-provider" ? "provider" : "patient";
   const [scrolled, setScrolled] = useState(false);
+  const [openDrop, setOpenDrop] = useState(null);
   const links = page === "patient" ? patientLinks : providerLinks;
 
   useEffect(() => {
@@ -41,23 +43,25 @@ export function Nav() {
       <div style={{ background: C.blue, height: NAV_TOP, display: "flex", alignItems: "stretch", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "stretch" }}>
           <Link href="/" style={{
-            display: "flex", alignItems: "center", padding: "0 24px",
-            color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: 1,
-            background: page === "patient" ? C.teal : "transparent",
+            display: "flex", alignItems: "center", padding: "0 32px",
+            color: "#fff", fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
+            background: page === "patient" ? C.teal : "rgba(255,255,255,0.08)",
             transition: "background 0.3s", textDecoration: "none",
+            borderRight: "1px solid rgba(255,255,255,0.12)",
           }}>
             PATIENT
           </Link>
           <Link href="/provider" style={{
-            display: "flex", alignItems: "center", padding: "0 24px",
-            color: "#fff", fontSize: 11, fontWeight: 700, letterSpacing: 1,
-            background: page === "provider" ? C.teal : "transparent",
+            display: "flex", alignItems: "center", padding: "0 32px",
+            color: "#fff", fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
+            background: page === "provider" ? C.teal : "rgba(255,255,255,0.08)",
             transition: "background 0.3s", textDecoration: "none",
+            borderRight: "1px solid rgba(255,255,255,0.12)",
           }}>
             PROVIDER
           </Link>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 24, paddingRight: 32, fontSize: 11, letterSpacing: 0.5 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 28, paddingRight: 36, fontSize: 12, letterSpacing: 1 }}>
           <Link href="/about" style={{ color: pathname === "/about" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/about" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/about" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">ABOUT</Link>
           <Link href="/contact-us" style={{ color: pathname === "/contact-us" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/contact-us" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/contact-us" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">CONTACT US</Link>
         </div>
@@ -78,7 +82,51 @@ export function Nav() {
           </Link>
           <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
             {links.map((l, i) => {
-              const isActive = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+              const hrefPath = l.href.split("#")[0];
+              const isActive = l.href === "/" ? pathname === "/" : hrefPath ? pathname === hrefPath : false;
+              if (l.drop) {
+                const isDropActive = l.drop.some(d => pathname.startsWith(d.href));
+                return (
+                  <div key={i} style={{ position: "relative" }}
+                    onMouseEnter={() => setOpenDrop(i)}
+                    onMouseLeave={() => setOpenDrop(null)}
+                  >
+                    <Link href={l.href} className="nav-link" style={{
+                      display: "flex", alignItems: "center", gap: 4, padding: "8px 16px",
+                      color: isDropActive ? C.teal : C.grayDark,
+                      fontSize: 15, fontWeight: isDropActive ? 700 : 500, whiteSpace: "nowrap",
+                      transition: "color 0.2s", textDecoration: "none",
+                      borderBottom: isDropActive ? `2px solid ${C.teal}` : "2px solid transparent",
+                    }}>
+                      {l.label} {Ico.chevDown}
+                    </Link>
+                    {openDrop === i && (
+                      <div style={{
+                        position: "absolute", top: "100%", left: 0,
+                        background: "#fff", borderRadius: 8, minWidth: 200,
+                        boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                        border: `1px solid ${C.grayLight}`,
+                        zIndex: 200, overflow: "hidden",
+                      }}>
+                        {l.drop.map((d, j) => (
+                          <Link key={j} href={d.href} style={{
+                            display: "block", padding: "12px 20px",
+                            fontSize: 14, fontWeight: pathname === d.href ? 700 : 500,
+                            color: pathname === d.href ? C.teal : C.grayDark,
+                            textDecoration: "none",
+                            background: pathname === d.href ? C.light : "transparent",
+                            borderBottom: j < l.drop.length - 1 ? `1px solid ${C.grayLight}` : "none",
+                          }}
+                            className="nav-link"
+                          >
+                            {d.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
               return (
                 <Link key={i} href={l.href} className="nav-link" style={{
                   display: "flex", alignItems: "center", gap: 4, padding: "8px 16px",
@@ -87,17 +135,19 @@ export function Nav() {
                   transition: "color 0.2s", textDecoration: "none",
                   borderBottom: isActive ? `2px solid ${C.teal}` : "2px solid transparent",
                 }}>
-                  {l.label} {l.drop && Ico.chevDown}
+                  {l.label}
                 </Link>
               );
             })}
-            <Link href={page === "patient" ? "/#find-provider" : "/provider#become"} style={{
-              background: C.teal, color: "#fff", padding: "9px 20px", borderRadius: 4,
-              fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
-              whiteSpace: "nowrap", textDecoration: "none", marginLeft: 8,
-            }}>
-              {page === "patient" ? "Find a Provider" : "Become a Provider"}
-            </Link>
+            {page === "provider" && (
+              <Link href="/become-a-provider" style={{
+                background: C.teal, color: "#fff", padding: "9px 20px", borderRadius: 4,
+                fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
+                whiteSpace: "nowrap", textDecoration: "none", marginLeft: 8,
+              }}>
+                Become a Provider
+              </Link>
+            )}
           </nav>
         </div>
       </div>

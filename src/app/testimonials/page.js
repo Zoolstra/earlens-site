@@ -2,6 +2,7 @@ import { client, urlFor } from "@/sanity/client";
 import { PageHero } from "@/components/PageHero";
 import { FadeIn } from "@/components/FadeIn";
 import { PatientCTA } from "@/components/patient/PatientCTA";
+import { WistiaVideo } from "@/components/WistiaVideo";
 import { C } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 
@@ -18,6 +19,7 @@ const stories = [
     since: "Patient since 2021",
     text: "I've tried four different hearing aids over twenty years. Nothing came close to Earlens. The first time I put it on and heard my wife's laugh the way I remembered it — I had to sit down. It was overwhelming in the best possible way.",
     detail: "Mild-to-moderate sensorineural hearing loss",
+    wistia: "2da5t4o4w4",
   },
   {
     name: "Genie R.",
@@ -26,6 +28,7 @@ const stories = [
     since: "Patient since 2022",
     text: "I'm a retired music teacher. Hearing loss took something precious from me — I couldn't enjoy the music I'd spent my whole life with. Earlens gave it back. I can hear the overtones again. The full chord. It's extraordinary.",
     detail: "Moderate sensorineural hearing loss",
+    wistia: "ol5dhc1kkc",
   },
   {
     name: "Dante P.",
@@ -34,6 +37,7 @@ const stories = [
     since: "Patient since 2020",
     text: "Board meetings used to exhaust me. Straining to hear every word, missing half the conversation. With Earlens I just... listen. I stopped working so hard to hear and started actually participating again.",
     detail: "Moderate-to-severe sensorineural hearing loss",
+    wistia: "vre5zaszb5",
   },
   {
     name: "Margaret T.",
@@ -50,6 +54,7 @@ const stories = [
     since: "Patient since 2020",
     text: "I'm a retired jazz musician. When I first put on Earlens, I heard harmonics I'd been missing for years. The richness came back. My audiologist said she'd never seen anyone react quite like that.",
     detail: "Mild-to-moderate sensorineural hearing loss",
+    wistia: "4wprjgnocf",
   },
   {
     name: "Susan K.",
@@ -110,24 +115,27 @@ export default async function TestimonialsPage() {
                   display: "flex",
                   flexDirection: "column",
                 }}>
-                  <div style={{
-                    height: 180,
-                    background: `linear-gradient(135deg, ${C.blue} 0%, #0f4d7a 100%)`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}>
-                    {photoUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={photoUrl} alt={s.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                    ) : (
-                      <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 26, fontWeight: 700 }}>
-                        {s.name[0]}
-                      </div>
-                    )}
-                  </div>
+                  {s.wistia ? (
+                    <div style={{ overflow: "hidden" }}>
+                      <WistiaVideo id={s.wistia} height={200} />
+                    </div>
+                  ) : (
+                    <div style={{
+                      height: 180,
+                      background: `linear-gradient(135deg, ${C.blue} 0%, #0f4d7a 100%)`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      overflow: "hidden",
+                    }}>
+                      {photoUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={photoUrl} alt={s.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      ) : (
+                        <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 26, fontWeight: 700 }}>
+                          {s.name[0]}
+                        </div>
+                      )}
+                    </div>
+                  )}
                   <div style={{ padding: "28px 28px 32px", flex: 1, display: "flex", flexDirection: "column" }}>
                     <div style={{ marginBottom: 16 }}>{Ico.quote}</div>
                     <div style={{ display: "flex", gap: 3, marginBottom: 16 }}>

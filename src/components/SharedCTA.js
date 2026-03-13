@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { C } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
@@ -27,9 +28,9 @@ export function SharedCTA() {
                 : "Join the Earlens provider network and differentiate your practice with breakthrough technology."}
             </p>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <button style={{ background: "#fff", color: C.blue, padding: "16px 36px", borderRadius: 6, fontSize: 15, fontWeight: 700, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+              <Link href={page === "patient" ? "/schedule-virtual-consultation" : "/become-a-provider"} style={{ background: "#fff", color: C.blue, padding: "16px 36px", borderRadius: 6, fontSize: 15, fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
                 {page === "patient" ? "Find a Provider" : "Become a Provider"} {Ico.arrow}
-              </button>
+              </Link>
               <button style={{ background: "transparent", color: "#fff", padding: "16px 36px", borderRadius: 6, fontSize: 15, fontWeight: 600, border: "2px solid rgba(255,255,255,0.4)", cursor: "pointer" }}>
                 Call 1-800-EARLENS
               </button>

@@ -28,19 +28,6 @@ export function PatientHero() {
               See How It Works
             </button>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ display: "flex" }}>
-              {["M","D","S","J"].map((ini, i) => (
-                <div key={i} style={{ width: 36, height: 36, borderRadius: "50%", background: `hsl(${i * 40 + 180}, 60%, 45%)`, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 12, fontWeight: 700, marginLeft: i > 0 ? -10 : 0, border: "2px solid #fff", position: "relative", zIndex: 4-i }}>{ini}</div>
-              ))}
-            </div>
-            <div>
-              <div style={{ display: "flex", gap: 2, marginBottom: 2 }}>
-                {[1,2,3,4,5].map(s => <span key={s}>{Ico.starFillSm()}</span>)}
-              </div>
-              <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 13 }}>Loved by thousands of patients</span>
-            </div>
-          </div>
         </div>
         <div style={{ position: "relative" }}>
           <ProductImage variant="device" />

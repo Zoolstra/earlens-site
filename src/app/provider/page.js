@@ -1,8 +1,8 @@
 import { ProviderHero } from "@/components/provider/ProviderHero";
 import { ProviderStats } from "@/components/provider/ProviderStats";
-import { ProviderResearch } from "@/components/provider/ProviderResearch";
-import { ProviderFAQ } from "@/components/provider/ProviderFAQ";
+import { ProviderHappyPatients } from "@/components/provider/ProviderHappyPatients";
 import { ProviderCTA } from "@/components/provider/ProviderCTA";
+import { ProviderTestimonialVideos } from "@/components/provider/ProviderTestimonialVideos";
 
 export const metadata = {
   title: "Earlens for Providers — Differentiate Your Practice",
@@ -14,8 +14,8 @@ export default function ProviderPage() {
     <>
       <ProviderHero />
       <ProviderStats />
-      <ProviderResearch />
-      <ProviderFAQ />
+      <ProviderHappyPatients />
+      <ProviderTestimonialVideos />
       <ProviderCTA />
     </>
   );

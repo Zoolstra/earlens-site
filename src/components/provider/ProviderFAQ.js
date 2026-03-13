@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { C } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 import { FadeIn } from "@/components/FadeIn";
@@ -22,9 +23,9 @@ export function ProviderFAQ() {
               <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, color: C.text, lineHeight: 1.2, marginBottom: 20 }}>
                 Provider<br />Questions
               </h2>
-              <button style={{ display: "flex", alignItems: "center", gap: 8, background: C.teal, color: "#fff", padding: "12px 24px", borderRadius: 6, fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer" }}>
+              <Link href="/contact-us" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: C.teal, color: "#fff", padding: "12px 24px", borderRadius: 6, fontSize: 14, fontWeight: 700, textDecoration: "none" }}>
                 Contact Us {Ico.arrow}
-              </button>
+              </Link>
             </div>
           </FadeIn>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>

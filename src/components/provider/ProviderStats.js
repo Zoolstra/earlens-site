@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { C } from "@/constants/colors";
 import { Ico } from "@/constants/icons";
 import { FadeIn } from "@/components/FadeIn";
@@ -16,17 +17,13 @@ export function ProviderStats() {
         <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 64, alignItems: "center" }}>
           <FadeIn>
             <div style={{ background: C.light, borderRadius: 24, padding: 32 }}>
-              <div style={{ display: "flex", gap: 24, marginBottom: 16, fontSize: 12, fontWeight: 700 }}>
-                <span style={{ color: C.gray }}>TRADITIONAL</span>
-                <span style={{ color: C.teal }}>EARLENS</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 120 }}>
-                {Array.from({ length: 80 }, (_, i) => {
-                  const h = i > 28 ? 14 + Math.sin(i * 0.45) * 32 + Math.cos(i * 0.8) * 12 : 4 + Math.sin(i * 0.3) * 6;
-                  return <div key={i} style={{ flex: 1, height: `${Math.max(4, h)}px`, borderRadius: 2, background: i > 28 ? `linear-gradient(180deg, ${C.teal}, #00BCD4)` : C.grayLight, opacity: i > 28 ? 0.9 : 0.5 }} />;
-                })}
-              </div>
-              <div style={{ color: C.gray, fontSize: 12, marginTop: 12, textAlign: "center" }}>Earlens sound bandwidth comparison</div>
+              <Image
+                src="/images/Earlens_Audible-Bandwidth_Comparison_BLUE.jpg"
+                alt="Earlens audible bandwidth comparison chart"
+                width={700}
+                height={420}
+                style={{ width: "100%", height: "auto", borderRadius: 12, display: "block" }}
+              />
             </div>
           </FadeIn>
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
