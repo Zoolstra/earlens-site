@@ -10,6 +10,9 @@ const firebaseConfig = {
   appId:             process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+// Guard against SSR / build environments where env vars aren't present
+const app = firebaseConfig.apiKey
+  ? (getApps().length ? getApps()[0] : initializeApp(firebaseConfig))
+  : null;
 
-export const auth = getAuth(app);
+export const auth = app ? getAuth(app) : null;

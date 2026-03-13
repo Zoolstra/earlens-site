@@ -10,11 +10,12 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
+    if (!auth) { setUser(null); return; }
     return onAuthStateChanged(auth, setUser);
   }, []);
 
   function signOut() {
-    return firebaseSignOut(auth);
+    return auth ? firebaseSignOut(auth) : Promise.resolve();
   }
 
   return (
