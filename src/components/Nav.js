@@ -51,7 +51,7 @@ export function Nav() {
       {/* Top bar */}
       <div style={{ background: C.blue, height: NAV_TOP, display: "flex", alignItems: "stretch", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "stretch" }}>
-          <Link href="/" style={{
+          <Link href="/" className="nav-top-tab" style={{
             display: "flex", alignItems: "center", padding: "0 32px",
             color: "#fff", fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
             background: page === "patient" ? C.teal : "rgba(255,255,255,0.08)",
@@ -60,7 +60,7 @@ export function Nav() {
           }}>
             PATIENT
           </Link>
-          <Link href="/provider" style={{
+          <Link href="/provider" className="nav-top-tab" style={{
             display: "flex", alignItems: "center", padding: "0 32px",
             color: "#fff", fontSize: 13, fontWeight: 700, letterSpacing: 1.5,
             background: page === "provider" ? C.teal : "rgba(255,255,255,0.08)",
@@ -70,7 +70,7 @@ export function Nav() {
             PROVIDER
           </Link>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 28, paddingRight: 36, fontSize: 12, letterSpacing: 1 }}>
+        <div className="nav-top-right" style={{ display: "flex", alignItems: "center", gap: 28, paddingRight: 36, fontSize: 12, letterSpacing: 1 }}>
           <Link href="/about" style={{ color: pathname === "/about" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/about" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/about" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">ABOUT</Link>
           <Link href="/contact-us" style={{ color: pathname === "/contact-us" ? "#fff" : "rgba(255,255,255,0.7)", fontWeight: pathname === "/contact-us" ? 700 : 400, textDecoration: "none", borderBottom: pathname === "/contact-us" ? "1px solid #fff" : "1px solid transparent", paddingBottom: 1 }} className="nav-link">CONTACT US</Link>
         </div>
@@ -79,7 +79,7 @@ export function Nav() {
       {/* Main nav */}
       <div style={{ background: "#fff", height: NAV_MAIN, borderBottom: `1px solid ${C.grayLight}` }}>
         <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 32px" }}>
-          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+          <Link href="/" className="nav-logo" style={{ display: "flex", alignItems: "center" }}>
             <Image
               src="/images/Logo-Earlens-r-Mar19_cmyk_cmyk.jpg"
               alt="Earlens"

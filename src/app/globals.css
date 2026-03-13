@@ -579,4 +579,18 @@ p.small,
   .nav-mobile-drawer-inner {
     padding-top: 64px;
   }
+
+  .nav-top-tab {
+    padding: 0 16px !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .nav-top-right {
+    display: none !important;
+  }
+
+  .nav-logo img {
+    height: 36px !important;
+  }
 }
