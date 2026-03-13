@@ -21,7 +21,7 @@ export function LifeWith() {
             </h2>
           </div>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
           {moments.map((m, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div style={{ background: C.white, borderRadius: 20, padding: "36px 40px", border: `1px solid ${C.warmBorder}`, display: "flex", gap: 24, alignItems: "flex-start" }}>

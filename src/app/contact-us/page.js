@@ -48,7 +48,7 @@ export default function ContactPage() {
 
       {/* Info cards */}
       <section style={{ padding: "80px 0 0", background: C.white }}>
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {infoCards.map((card, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div style={{
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Name */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                    <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                       <div>
                         <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: C.grayDark, marginBottom: 6 }}>First Name</label>
                         <input
@@ -187,7 +187,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Phone & Email */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                    <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                       <div>
                         <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: C.grayDark, marginBottom: 6 }}>Phone</label>
                         <input

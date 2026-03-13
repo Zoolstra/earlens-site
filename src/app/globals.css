@@ -463,3 +463,120 @@ p.small,
     font-size: 17px;
   }
 }
+
+
+/* ── Responsive Layout Utilities ──
+   Use these classNames on grid/flex containers.
+   !important overrides inline styles on mobile.
+*/
+
+@media (max-width: 768px) {
+  /* Stack any grid to single column */
+  .mob-stack {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Stack flex row to column */
+  .mob-col {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  /* Hide on mobile */
+  .mob-hide {
+    display: none !important;
+  }
+
+  /* Reduce section vertical padding */
+  .mob-pad {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* Reduce card/form padding */
+  .mob-inner-pad {
+    padding: 28px 20px !important;
+  }
+
+  /* Center text */
+  .mob-center {
+    text-align: center !important;
+  }
+
+  /* Full width */
+  .mob-full {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Reduce large stat font */
+  .mob-stat {
+    font-size: 36px !important;
+  }
+
+  /* Reduce large gaps */
+  .mob-gap {
+    gap: 20px !important;
+  }
+}
+
+/* ── Mobile Nav ── */
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #334155;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.nav-desktop-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-mobile-drawer {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-desktop-links {
+    display: none !important;
+  }
+
+  .nav-mobile-drawer {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999;
+    overflow-y: auto;
+    padding: 24px;
+  }
+
+  .nav-mobile-drawer-inner {
+    padding-top: 64px;
+  }
+}

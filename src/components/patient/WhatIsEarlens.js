@@ -22,7 +22,7 @@ export function WhatIsEarlens() {
           </div>
         </FadeIn>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginBottom: 64 }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginBottom: 64 }}>
           {[
             { title: "The Processor", desc: "A sleek, rechargeable behind-the-ear device that captures sound and converts it to light energy.", img: "device", accent: C.teal },
             { title: "The Lens", desc: "A tiny, custom-fit lens placed on your eardrum by your audiologist. So light, you can't feel it.", img: "lens", accent: C.blue, featured: true },
@@ -42,7 +42,7 @@ export function WhatIsEarlens() {
         </div>
 
         <FadeIn>
-          <div style={{ background: C.blueLight, borderRadius: 24, padding: "48px 56px", display: "grid", gridTemplateColumns: "1fr auto", gap: 48, alignItems: "center" }}>
+          <div className="mob-stack" style={{ background: C.blueLight, borderRadius: 24, padding: "48px 56px", display: "grid", gridTemplateColumns: "1fr auto", gap: 48, alignItems: "center" }}>
             <div>
               <h3 style={{ fontSize: 26, fontWeight: 800, color: C.blue, marginBottom: 16 }}>Why a Lens on Your Eardrum?</h3>
               <p style={{ color: C.textLight, fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>

@@ -14,7 +14,7 @@ export function ProviderStats() {
             <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>More Restored Sound</h2>
           </div>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 64, alignItems: "center" }}>
           <FadeIn>
             <div style={{ background: C.light, borderRadius: 24, padding: 32 }}>
               <Image

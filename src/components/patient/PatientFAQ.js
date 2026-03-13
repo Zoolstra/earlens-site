@@ -18,7 +18,7 @@ export function PatientFAQ() {
   return (
     <section id="faq" style={{ padding: "100px 0", background: C.white }}>
       <div className="wrap">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 80, alignItems: "start" }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 80, alignItems: "start" }}>
           <FadeIn>
             <div>
               <div style={{ color: C.teal, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>FAQ</div>

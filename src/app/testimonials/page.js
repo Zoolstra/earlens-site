@@ -101,7 +101,7 @@ export default async function TestimonialsPage() {
       {/* Patient cards */}
       <section style={{ padding: "100px 0", background: C.white }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {(sanityTestimonials.length > 0 ? sanityTestimonials : stories).map((s, i) => {
               const photoUrl = s.photo?.asset ? urlFor(s.photo).width(600).height(360).fit("crop").url() : null;
               return (
@@ -193,7 +193,7 @@ export default async function TestimonialsPage() {
               </h2>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {(sanityAudiologists.length > 0 ? sanityAudiologists : doctors).map((d, i) => {
               const photoUrl = d.photo?.asset ? urlFor(d.photo).width(96).height(96).fit("crop").url() : null;
               return (

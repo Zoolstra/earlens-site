@@ -15,7 +15,7 @@ const patientLinks = [
 ];
 
 const providerLinks = [
-  { label: "Why Earlens", href: "/provider#why" },
+  { label: "Why Earlens", href: "/provider#why", primary: true },
   { label: "Research", href: "/provider/research" },
   { label: "FAQ", href: "/provider#faq" },
   { label: "Provider Training", href: "/provider#training" },
@@ -29,6 +29,7 @@ export function Nav() {
   const page = pathname === "/provider" || pathname.startsWith("/provider/") || pathname === "/become-a-provider" ? "provider" : "patient";
   const [scrolled, setScrolled] = useState(false);
   const [openDrop, setOpenDrop] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const links = page === "patient" ? patientLinks : providerLinks;
 
   useEffect(() => {
@@ -36,6 +37,10 @@ export function Nav() {
     window.addEventListener("scroll", h);
     return () => window.removeEventListener("scroll", h);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <header style={{ position: "sticky", top: 0, zIndex: 100, boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.1)" : "none", transition: "box-shadow 0.3s" }}>
@@ -80,10 +85,21 @@ export function Nav() {
               priority
             />
           </Link>
-          <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
+          {/* Hamburger */}
+          <button className="nav-hamburger" onClick={() => setMobileOpen(o => !o)} aria-label="Menu">
+            <span style={{ transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+            <span style={{ opacity: mobileOpen ? 0 : 1 }} />
+            <span style={{ transform: mobileOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
+          </button>
+
+          <nav className="nav-desktop-links">
             {links.map((l, i) => {
               const hrefPath = l.href.split("#")[0];
-              const isActive = l.href === "/" ? pathname === "/" : hrefPath ? pathname === hrefPath : false;
+              const isActive = l.href === "/"
+                ? pathname === "/"
+                : l.href.includes("#")
+                  ? (l.primary === true && pathname === hrefPath)
+                  : pathname === hrefPath;
               if (l.drop) {
                 const isDropActive = l.drop.some(d => pathname.startsWith(d.href));
                 return (
@@ -151,6 +167,54 @@ export function Nav() {
           </nav>
         </div>
       </div>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="nav-mobile-drawer">
+          <button
+            onClick={() => setMobileOpen(false)}
+            style={{ position: "absolute", top: 20, right: 20, background: "none", border: "none", cursor: "pointer", padding: 8 }}
+            aria-label="Close menu"
+          >
+            <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke={C.grayDark} strokeWidth="2" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+          <div className="nav-mobile-drawer-inner">
+            {/* Section tabs */}
+            <div style={{ display: "flex", gap: 8, marginBottom: 32 }}>
+              <Link href="/" style={{ flex: 1, textAlign: "center", padding: "12px", borderRadius: 6, background: page === "patient" ? C.teal : C.light, color: page === "patient" ? "#fff" : C.grayDark, fontWeight: 700, fontSize: 13, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" }}>Patient</Link>
+              <Link href="/provider" style={{ flex: 1, textAlign: "center", padding: "12px", borderRadius: 6, background: page === "provider" ? C.teal : C.light, color: page === "provider" ? "#fff" : C.grayDark, fontWeight: 700, fontSize: 13, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" }}>Provider</Link>
+            </div>
+            {/* Nav links */}
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {links.map((l, i) => (
+                <div key={i}>
+                  <Link href={l.href} style={{ display: "block", padding: "16px 0", fontSize: 17, fontWeight: 600, color: C.text, textDecoration: "none", borderBottom: `1px solid ${C.grayLight}` }}>
+                    {l.label}
+                  </Link>
+                  {l.drop && (
+                    <div style={{ paddingLeft: 16 }}>
+                      {l.drop.map((d, j) => (
+                        <Link key={j} href={d.href} style={{ display: "block", padding: "12px 0", fontSize: 15, color: C.textLight, textDecoration: "none", borderBottom: `1px solid ${C.grayLight}` }}>
+                          {d.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <Link href="/about" style={{ display: "block", padding: "16px 0", fontSize: 17, fontWeight: 600, color: C.text, textDecoration: "none", borderBottom: `1px solid ${C.grayLight}` }}>About</Link>
+              <Link href="/contact-us" style={{ display: "block", padding: "16px 0", fontSize: 17, fontWeight: 600, color: C.text, textDecoration: "none", borderBottom: `1px solid ${C.grayLight}` }}>Contact Us</Link>
+            </div>
+            {page === "provider" && (
+              <Link href="/become-a-provider" style={{ display: "block", marginTop: 24, textAlign: "center", background: C.teal, color: "#fff", padding: "16px", borderRadius: 6, fontSize: 15, fontWeight: 700, textDecoration: "none" }}>
+                Become a Provider
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

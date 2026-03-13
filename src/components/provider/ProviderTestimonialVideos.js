@@ -14,7 +14,7 @@ export function ProviderTestimonialVideos() {
             </h2>
           </div>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
           <FadeIn delay={0.05}>
             <div style={{ borderRadius: 20, overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}>
               <WistiaVideo id="07603q26xq" height={340} />

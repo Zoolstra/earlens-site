@@ -62,7 +62,7 @@ export default function PatientOutcomesPage() {
       {/* Stats bar */}
       <section style={{ padding: "72px 0", background: C.white }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {stats.map((s, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div style={{ background: C.light, borderRadius: 20, padding: "32px 28px", border: `1px solid ${C.grayLight}`, display: "flex", flexDirection: "column", gap: 14 }}>
@@ -119,7 +119,7 @@ export default function PatientOutcomesPage() {
               </h2>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
             {providerTestimonials.map((t, i) => (
               <FadeIn key={i} delay={i * 0.12}>
                 <div style={{ background: C.light, borderRadius: 20, padding: "36px 32px", border: `1px solid ${C.grayLight}`, position: "relative" }}>

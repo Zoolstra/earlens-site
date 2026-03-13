@@ -47,7 +47,7 @@ export function Footer() {
       <div className="wrap">
 
         {/* Main footer grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1.8fr 1fr 1fr", gap: 64, padding: "64px 0 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1.8fr 1fr 1fr", gap: 64, padding: "64px 0 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
 
           {/* Brand column */}
           <div>

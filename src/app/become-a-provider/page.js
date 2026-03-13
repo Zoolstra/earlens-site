@@ -31,7 +31,7 @@ export default function BecomeAProviderPage() {
       <section style={{ padding: "100px 0", background: C.white }}>
         <div className="wrap">
           {/* Text + Video row */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", marginBottom: 60 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", marginBottom: 60 }}>
             <FadeIn>
               <div>
                 <div style={{ color: C.teal, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Why Earlens</div>
@@ -56,7 +56,7 @@ export default function BecomeAProviderPage() {
 
           {/* Stats row */}
           <FadeIn delay={0.15}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
               {stats.map((s, i) => (
                 <div key={i} style={{ background: C.light, borderRadius: 16, padding: "24px 28px", display: "flex", gap: 20, alignItems: "center", border: `1px solid ${C.grayLight}` }}>
                   <div style={{ fontSize: 36, fontWeight: 900, color: C.teal, lineHeight: 1, flexShrink: 0, minWidth: 80 }}>{s.val}</div>
@@ -71,7 +71,7 @@ export default function BecomeAProviderPage() {
       {/* Watch a Lens Placement video */}
       <section style={{ padding: "100px 0", background: C.light }}>
         <div className="wrap">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
             <FadeIn>
               <div>
                 <div style={{ color: C.teal, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>See It In Action</div>
@@ -108,7 +108,7 @@ export default function BecomeAProviderPage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div style={{ maxWidth: 680, margin: "0 auto", background: C.light, borderRadius: 24, padding: "48px 52px", border: `1px solid ${C.grayLight}`, boxShadow: "0 4px 32px rgba(0,0,0,0.06)" }}>
+            <div className="mob-inner-pad" style={{ maxWidth: 680, margin: "0 auto", background: C.light, borderRadius: 24, padding: "48px 52px", border: `1px solid ${C.grayLight}`, boxShadow: "0 4px 32px rgba(0,0,0,0.06)" }}>
               <form
                 method="POST"
                 action="https://earlens1.activehosted.com/proc.php"
@@ -126,7 +126,7 @@ export default function BecomeAProviderPage() {
                 <input type="hidden" name="field[71]" value="" />
                 <input type="hidden" name="field[72]" value="(direct)" />
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <FormField label="First Name" required>
                     <input type="text" name="firstname" placeholder="Type your first name" required style={inputStyle} />
                   </FormField>

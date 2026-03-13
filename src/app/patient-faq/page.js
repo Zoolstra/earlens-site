@@ -163,7 +163,7 @@ export default function PatientFAQPage() {
       />
 
       <section style={{ padding: "80px 0 100px", background: C.white }}>
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "260px 1fr", gap: 80, alignItems: "start" }}>
+        <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "260px 1fr", gap: 80, alignItems: "start" }}>
           {/* Sticky sidebar */}
           <FadeIn>
             <div style={{ position: "sticky", top: 120 }}>

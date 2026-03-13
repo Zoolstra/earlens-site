@@ -16,7 +16,7 @@ export function PatientStories() {
     <section id="stories" style={{ padding: "100px 0", background: `linear-gradient(135deg, ${C.blue} 0%, #0f3d6a 100%)` }}>
       <div className="wrap">
         <FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 80, alignItems: "center" }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 80, alignItems: "center" }}>
             <div>
               <div style={{ color: C.tealLight, fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>
                 Patient Stories

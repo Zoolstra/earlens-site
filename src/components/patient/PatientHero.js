@@ -6,7 +6,7 @@ import { ProductImage } from "@/components/ProductImage";
 export function PatientHero() {
   return (
     <section style={{ background: `linear-gradient(135deg, ${C.blue} 0%, #0f4d7a 50%, ${C.teal} 100%)`, minHeight: `calc(90vh - ${NAV_TOTAL}px)`, display: "flex", alignItems: "center", padding: "80px 0", position: "relative", overflow: "hidden" }}>
-      <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", position: "relative", zIndex: 1 }}>
+      <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", position: "relative", zIndex: 1 }}>
         <div>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.1)", borderRadius: 20, padding: "6px 14px", marginBottom: 24 }}>
             <span style={{ color: C.tealLight, fontSize: 12, fontWeight: 600 }}>

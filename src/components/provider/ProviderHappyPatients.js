@@ -32,7 +32,7 @@ export function ProviderHappyPatients() {
             </h2>
           </div>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {stats.map((s, i) => (
             <FadeIn key={i} delay={i * 0.12}>
               <div style={{ background: C.light, borderRadius: 20, padding: "36px 28px", border: `1px solid ${C.grayLight}`, display: "flex", flexDirection: "column", gap: 16 }}>

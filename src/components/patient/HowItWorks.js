@@ -22,7 +22,7 @@ export function HowItWorks() {
             </p>
           </div>
         </FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, position: "relative" }}>
+        <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, position: "relative" }}>
           <div style={{ position: "absolute", top: 52, left: "12.5%", right: "12.5%", height: 2, background: `linear-gradient(90deg, ${C.teal}, ${C.blue})`, zIndex: 0 }} />
           {steps.map((s, i) => (
             <FadeIn key={i} delay={i * 0.15}>

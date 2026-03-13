@@ -26,7 +26,7 @@ export function ProviderHero() {
             Become a Provider {Ico.arrow}
           </Link>
         </div>
-        <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
           {[{ v: "10+", l: "Years of Research" }, { v: "50+", l: "Published Studies" }, { v: "98%", l: "Patient Satisfaction" }].map((b, i) => (
             <div key={i}>
               <div style={{ color: "#fff", fontSize: 36, fontWeight: 900, lineHeight: 1 }}>{b.v}</div>

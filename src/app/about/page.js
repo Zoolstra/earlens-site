@@ -48,7 +48,7 @@ export default async function AboutPage() {
 
       {/* Stats bar */}
       <section style={{ background: C.blue, padding: "40px 0" }}>
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, textAlign: "center" }}>
+        <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, textAlign: "center" }}>
           {stats.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div style={{ color: "#fff" }}>
@@ -62,7 +62,7 @@ export default async function AboutPage() {
 
       {/* Mission */}
       <section style={{ padding: "100px 0", background: C.white }}>
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+        <div className="wrap mob-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
           <FadeIn>
             <div>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, color: C.text, lineHeight: 1.2, marginBottom: 24 }}>
@@ -124,7 +124,7 @@ export default async function AboutPage() {
               <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, color: C.text, lineHeight: 1.2 }}>Executive Team</h2>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {(sanityTeam.length > 0 ? sanityTeam : team).map((p, i) => {
               const photoUrl = p.photo?.asset
                 ? urlFor(p.photo).width(600).height(640).fit("crop").url()

@@ -79,7 +79,7 @@ export default function BenefitsPage() {
         <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: 64 }}>
           {benefits.map((b, i) => (
             <FadeIn key={i} delay={i * 0.05}>
-              <div style={{
+              <div className="mob-stack" style={{
                 display: "grid",
                 gridTemplateColumns: i % 2 === 0 ? "1fr 1fr" : "1fr 1fr",
                 gap: 64,
@@ -137,7 +137,7 @@ export default function BenefitsPage() {
               </h2>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+          <div className="mob-stack" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
             {hearingStats.map((s, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div style={{
